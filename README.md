@@ -18,4 +18,6 @@ pnpm run dev
 
 ### Apuntes
 La renderizacion de los estado en React son asincronas.
+Los useState siempre devene star en el cuerpoo del componente ya que React los guarda ebn un array y no devemos cmabiar las posiciones de este, de deven de estar dentro ni de un if ni de un while si de nada que pueda llegar a modificarlo.
+La forma correcta lde leer el local stoprage es dentro del propio useState
 
