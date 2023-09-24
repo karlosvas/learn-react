@@ -25,3 +25,6 @@ El componente <React.Fragment><React.Fragment> se utiliza para renderizar mas de
 El componente <React.StrictMode></React.StrictMode> se utiliza para dar adveretencias sobre el uso de reeact si estas utilizaando código antiguo, si estas haciendo algo incorrecto. AL montar el componente ejecuta el efecto dos veces para asegurarse. Solo para en desarollo no en produccion.
 
 useEffect es un Hook, por lo que sólo puedes llamarlo en el nivel superior de tu componente o en los propios Hooks. No puedes llamarlo dentro de bucles o condiciones. Si es necesario, se extrae un nuevo componente y mueve el estado a él.
+
+Un costom hook trata de reutilizar lógica en diferentes componnetes. Siempre empiezan con la palabra use, no pueden estar dentro de un if ni de un while. No puede cambiar su posición y siempre teiene que ser llamado desde el cuerpo de nuestro componente, dentro de un custoom hook podremos llamar otros hooks. Custom hook (lógica reutilizable).
+Es recomendable evitar darle un nombre que hable sobre que es la implementacion o la funcion que realiza.

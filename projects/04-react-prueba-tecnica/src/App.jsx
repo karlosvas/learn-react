@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react'
 import './App.css'
-const CAT_ENDPOINT_RANDOM_FACT = 'https://catfact.ninja/fact'
-const CAT_PREFIX_IMG_URL = 'https://cataas.com'
+import { useCatImage } from './hooks/useCatImage.js'
+import { useCatFact } from './hooks/useCatFact.js'
 
 export function App () {
-  const [fact, steFact] = useState()
-  const [imageUrl, setImgURL] = useState()
-  // const [factError, setFactError] = useState()
+  const { fact, refreshFact } = useCatFact()
+  const { imageUrl } = useCatImage({ fact })
   /*
+  // const [factError, setFactError] = useState()
+
   Async await
   useEffect(() => {
     async function getRandomFact () {
@@ -17,9 +17,15 @@ export function App () {
     }
     getRandomFact()
   }, []) //  [] => Dependencias
-*/
 
-  // Promesas par arecuperar la cita al cargar al página
+  Promesas par arecuperar la cita al cargar al página
+
+  useEffect(() => getRandomFact(setFact), [])
+
+  useEffect(() => {
+    getRandomFact().then(setFact)
+  }, [])
+
   useEffect(() => {
     fetch(CAT_ENDPOINT_RANDOM_FACT)
       .then(res => {
@@ -38,24 +44,22 @@ export function App () {
       // })
   }, []) //  [] => Dependencias
 
-  // No utilizar fecth sin useEffect
-  // para recuperar la imagen cada vez que tengamos una cita nueva
-  useEffect(() => {
-    if (!fact) return
-    const threeFistWord = fact.split(' ', 3).join(' ')
-    fetch(`https://cataas.com/cat/says/${threeFistWord}?size=50&color=red&json=true`)
-      .then(res => res.json())
-      .then(response => {
-        const { url } = response
-        setImgURL(url)
-      })
-  }, [fact])
+  // No utilizar fecth sin useEffect.
+*/
+
+  // Para recuperar la imagen cada vez que tengamos una cita nueva.
+  const handleClick = async () => {
+    // const newFact = await getRandomFact()
+    // setFact(newFact)
+    refreshFact()
+  }
 
   return (
     <main>
       <h2>App de gatos</h2>
+      <button onClick={handleClick}>Get new fact</button>
       {fact && <p>{fact}</p>}
-      {imageUrl && <img src={`${CAT_PREFIX_IMG_URL}${imageUrl}`} alt={`Image extracted using the first trhee words word for ${fact}`} />}
+      {imageUrl && <img src={imageUrl} alt={`Image extracted using the first trhee words word for ${fact}`} />}
     </main>
   )
 }
