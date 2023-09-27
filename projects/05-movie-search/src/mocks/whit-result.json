@@ -1,0 +1,76 @@
+{
+    "Search": [
+    {
+    "Title": "Planet Terror",
+    "Year": "2007",
+    "imdbID": "tt1077258",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BODdmNmM2ZTgtODM1MS00ZGMxLTk3MTMtMGQ1ODZhMTQ1NWEwL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
+    },
+    {
+    "Title": "The Terror",
+    "Year": "2018–2019",
+    "imdbID": "tt2708480",
+    "Type": "series",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNTUxNzI1MzcwN15BMl5BanBnXkFtZTgwMjA1MTg5NDM@._V1_SX300.jpg"
+    },
+    {
+    "Title": "Birdemic: Shock and Terror",
+    "Year": "2010",
+    "imdbID": "tt1316037",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZTMyNmM1ODYtZmU3OS00NWIwLTg0MWEtNDExY2NlMzYzNTQ4XkEyXkFqcGdeQXVyNzMzMjU5NDY@._V1_SX300.jpg"
+    },
+    {
+    "Title": "Toy Story of Terror",
+    "Year": "2013",
+    "imdbID": "tt2446040",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYTZkY2JjMDItYzEwMS00MjVlLTlhYjktMmI5YjYzMjdmZGMxXkEyXkFqcGdeQXVyNDIwODAwNzg@._V1_SX300.jpg"
+    },
+    {
+    "Title": "Terror Train",
+    "Year": "1980",
+    "imdbID": "tt0081617",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYzEyMzVkOTUtNzhmZi00ZDZhLWE0YjUtNTNlNWNjMGU1OTE3XkEyXkFqcGdeQXVyMTUzMDUzNTI3._V1_SX300.jpg"
+    },
+    {
+    "Title": "Terror in Resonance",
+    "Year": "2014",
+    "imdbID": "tt3613454",
+    "Type": "series",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNjdhYzY0M2QtODgwZi00NDg2LTliNDQtMzA4ZTMzMzQ0MGEyXkEyXkFqcGdeQXVyMTA3OTEyODI1._V1_SX300.jpg"
+    },
+    {
+    "Title": "Snow White: A Tale of Terror",
+    "Year": "1997",
+    "imdbID": "tt0119227",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMzE0MTk2OGYtMmM5ZC00MGQ4LTk1MGYtZTQ4Y2MzN2M4MzE4XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
+    },
+    {
+    "Title": "Turning Point: 9/11 and the War on Terror",
+    "Year": "2021",
+    "imdbID": "tt15260794",
+    "Type": "series",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BODcxNjIyMDUtYjJiMC00YmZmLThiZGUtNDdmNzc4N2I4MGMzXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_SX300.jpg"
+    },
+    {
+    "Title": "Galaxy of Terror",
+    "Year": "1981",
+    "imdbID": "tt0082431",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNTE0MjkzMWItYTI3ZS00ZGRiLTllOTktMGMyNzlkMjRmZWZmXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
+    },
+    {
+    "Title": "Trilogy of Terror",
+    "Year": "1975",
+    "imdbID": "tt0073820",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNjUyMzQyNzE5NV5BMl5BanBnXkFtZTcwMzk2MDQzMQ@@._V1_SX300.jpg"
+    }
+    ],
+    "totalResults": "1216",
+    "Response": "True"
+    }

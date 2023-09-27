@@ -6,6 +6,8 @@ Pagina ofical de React = https://es.react.dev/
 midudev curso1= https://youtu.be/7iobxzd_2wY?si=6MNFpkT6Jgf6gI9q
 midudev curso2= https://youtu.be/qkzcjwnueLA?si=7XW5FKqBlQO0bkw5
 midudev curso3= https://youtu.be/XYpadB4VadY?si=AEdXRTIAUHDlDG3F
+midudev curso4= https://youtu.be/x-LcbVw99o8?si=WCKBiR96ptj6_HjZ
+midudev curso5= https://youtu.be/GOEiMwDJ3lc?si=SWSLEQI71xg_pv3M
 
 ### Para probarlo
 Utilizar (Vite && React && NodeJS) para ser inicializado.

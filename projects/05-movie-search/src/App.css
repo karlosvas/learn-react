@@ -1,0 +1,15 @@
+main{
+  display: flex;
+  justify-content: center;
+}
+.page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
