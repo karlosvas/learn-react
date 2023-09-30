@@ -1,28 +1,46 @@
-import whitoutResult from "../mocks/whit-no-result.json"
-import { useState } from 'react'
+import { useRef, useState, useMemo, useCallback } from 'react'
+import { searchMovies } from './movies'
 
-export function useMovies({ search }) {
-    const [responseMovies, setResponseMovies] = useState([])
-    const movies = responseMovies.Search
+export function useMovies({ search, sort }) {
+    const [movies, setMovies] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [, setError] = useState(null)
+    const previusSearch = useRef(search)
 
-    const mappedMovies = movies?.map(movie => ({
-        id: movie.imdbID,
-        title: movie.Title,
-        year: movie.Year,
-        poster: movie.Poster
-    }))
+    // useMemo
+    /*
+    const getMovies = useMemo(() => {
+        return async ({ search }) => {
+    */
 
-    const getMovies = () => {
-        if (search) {
-            // setResponseMovies(whithResult)
-            fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=f7ecf57d&s=${search}`)
-                .then(res => res.json())
-                .then(json => {
-                    setResponseMovies(json)
-                })
-        } else {
-            setResponseMovies(whitoutResult)
+    // useCalback: es lo mismo que el useMemo pero pensado para función. Simplifica la sintaxis.
+    const getMovies = useCallback(async ({ search }) => {
+        // Verifica si search esta vacio.
+        if (search == previusSearch.current) return
+
+        try {
+            setLoading(true)
+            setError(null)
+            previusSearch.current = search
+            const newMovies = await searchMovies({ search })
+            setMovies(newMovies)
+        } catch (e) {
+            setError(e.message)
+        } finally {
+            setLoading(false)
         }
-    }
-    return { movies: mappedMovies, getMovies }
+    }, [])
+
+    // const sortMovies = sort
+    //     ? [...movies].sort((a, b) => b.year.localeCompare(a.year))
+    //     : movies
+
+    const sortMovies = useMemo(() => {
+        return sort
+            ? [...movies].sort((a, b) => b.year.localeCompare(a.year))
+            : movies
+    }, [sort, movies])
+
+
+    return { movies: sortMovies, getMovies, loading }
 }

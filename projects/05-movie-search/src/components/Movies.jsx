@@ -14,7 +14,7 @@ function ListOfMovies ({ movies }) {
     )
 }
 
-function noMoviesResult () {
+function NoMoviesResult () {
     return(
         <p>No se encontraron peliculas para esta búsqueda</p>
     )
@@ -26,7 +26,7 @@ export function Movies({ movies }){
     return(
         hasMovie
         ? <ListOfMovies movies={movies} />
-        : <noMoviesResult />
+        : <NoMoviesResult />
     )
 
 }

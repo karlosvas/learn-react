@@ -1,7 +1,8 @@
 import './App.css'
-import { useEffect, useState, useRef } from 'react'
-import { Movies } from './components/Movies.jsx'
 import { useMovies } from './hooks/useMovies'
+import { Movies } from "./components/Movies"
+import { useEffect, useState, useRef, useCallback } from 'react'
+import debounce from 'just-debounce-it'
 
 function useSearch () {
   const [ search, updateSearch ] = useState('')
@@ -30,10 +31,8 @@ function useSearch () {
     }
     
     setError(null)
-    console.log(setError)
-    console.log({setError})
   }, [search])
-  return [search, updateSearch, error]
+  return { search, updateSearch, error }
 }
   //   setQuery(event.target.value)
   //   if (newQuery == ""){
@@ -55,19 +54,34 @@ function useSearch () {
 // }
 
 function App() {
-  const [ search, updateSearch, error ] = useSearch()
-  const {movies, getMovies} = useMovies({search}) 
+  const [ sort, setSort ] = useState(false)
 
-  const handleSumbit = (event) =>{
-    event.preventDefault()
-    // const { query } = new Object.formEntires(
-    //   new window.FormData(event.target)
-    // )
-    getMovies()
+  const { search, updateSearch, error } = useSearch()
+  const { movies, getMovies, loading } = useMovies({ search, sort }) 
+
+  const debouceGetMovies = useCallback(
+    debounce(search => {
+    getMovies({ search })
+  },300)
+  ,[getMovies]
+)
+
+const handleSumbit = (event) =>{
+  event.preventDefault()
+  // const { query } = new Object.formEntires(
+  //   new window.FormData(event.target)
+  // )
+  getMovies({ search })
   } 
-  
+
+  const handleSort = () => {
+    setSort(!sort)
+  }
+    
   const handleChange = (event) =>  {
-    updateSearch(event.target.value)
+    const newSearch = event.target.value
+    updateSearch(newSearch)
+    debouceGetMovies(newSearch)
   }
 
   return (
@@ -80,14 +94,18 @@ function App() {
           style={{
             border: '1px solid transparent',
             borderColor: error ? 'red' : 'tranparent'
-          }} onChange={ handleChange } value={search} name="query" placeholder='Movie' />
+          }} onChange={ handleChange } value={search} name="query" placeholder='Movie' 
+          />
+          <input type="checkbox" onChange={handleSort} checked={sort} />
           <button type="submit">Buscar</button>
         </form>
         {error && <p style={{ color: "red"}}>{error}</p>}
       </header>
 
       <main>
-        <Movies movies={ movies }/>
+        {
+          loading ? <p>Cargando...</p>: <Movies movies={movies} />
+        }
       </main>
     </div>
   )
